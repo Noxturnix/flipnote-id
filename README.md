@@ -1,6 +1,6 @@
 # flipnote-id
 
-A tool to modify Flipnote Studio ID (FSID) implemented in Rust
+A tool for modifying Flipnote Studio ID (FSID) implemented in Rust
 
 ```
 Usage: flipnote-id [OPTIONS] <ACTION>
@@ -29,7 +29,7 @@ I'm not responsible for any kind of data loss or service terminations (including
 # Credits
 
 - Thanks [Flipnote Collective](https://github.com/Flipnote-Collective) for providing [FSID format](https://github.com/Flipnote-Collective/flipnote-studio-docs/wiki/FSIDs-and-Filenames#flipnote-studio-ids) info
-- Thanks nocash for providing [option.bin file strucure](https://problemkaputt.de/gbatek-dsi-sd-mmc-flipnote-files.htm)
+- Thanks nocash for providing [option.bin file structure](https://problemkaputt.de/gbatek-dsi-sd-mmc-flipnote-files.htm)
 - [genact](https://github.com/svenstaro/genact) project as an example for Rust GitHub Actions release file and Cargo.toml options
 
 # License
