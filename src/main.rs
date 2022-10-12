@@ -1,7 +1,7 @@
 use clap::Parser;
 use cli::{Actions, Cli};
 
-use file::{handle_file_read_error, handle_flipnote_id_error};
+use file::{handle_file_create_error, handle_file_read_error, handle_flipnote_id_error};
 use flipnote_id::{compute_checksum, extract_id_with_checksum, set_fsid};
 
 use std::{
@@ -27,16 +27,18 @@ fn main() {
                         }
                     }
 
-                    let mut fp = File::create(&cli.file).unwrap();
-                    match fp.write_all(&new_data) {
-                        Ok(_) => println!(
-                            "Successfully set FSID to {:016X}",
-                            extract_id_with_checksum(&new_data).unwrap().id
-                        ),
-                        Err(_) => {
-                            eprintln!("Error: Can't write to file");
-                            exit(1);
-                        }
+                    match File::create(&cli.file) {
+                        Ok(mut fp) => match fp.write_all(&new_data) {
+                            Ok(_) => println!(
+                                "Successfully set FSID to {:016X}",
+                                extract_id_with_checksum(&new_data).unwrap().id
+                            ),
+                            Err(_) => {
+                                eprintln!("Error: Can't write to file");
+                                exit(1);
+                            }
+                        },
+                        Err(err) => handle_file_create_error(err),
                     }
                 }
                 Err(_) => {
