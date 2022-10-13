@@ -22,6 +22,16 @@ Options:
 $ ./flipnote-id set --id 5000000000000000 --file option.bin
 ```
 
+# Download
+
+You can download the latest version [here](https://github.com/Noxturnix/flipnote-id/releases/latest). All binaries are built and released directly from [GitHub Actions](https://github.com/Noxturnix/flipnote-id/actions)
+
+# Build
+
+1. Install [Rust](https://www.rust-lang.org/tools/install)
+2. `cargo build --release`
+3. Compiled binary will be saved in `target/release` directory
+
 # Caution
 
 I'm not responsible for any kind of data loss or service terminations (including bans from custom Flipnote servers)
